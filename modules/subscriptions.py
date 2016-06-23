@@ -54,6 +54,7 @@ class Subscriptions():
             await asyncio.sleep(self.delay)
             await self.bot.delete_message(ctx.message)
             await self.bot.delete_message(output)
+            return
 
         # Checks if the region is an available option
         for options in self.allOptions:
