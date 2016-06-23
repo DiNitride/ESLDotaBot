@@ -18,8 +18,9 @@ class Subscriptions():
         self.eu = ['194819975691632640', 'eu', 'europe', 'Europe']
         self.cis = ['194807064969740288', 'cis', 'CIS']
         self.asia = ['195096302311309312', 'asia', 'Asia']
+        self.gr = ['195544243308199936','gr','greece','Greece']
 
-        self.allOptions = [self.na, self.eu, self.cis, self.asia]
+        self.allOptions = [self.na, self.eu, self.cis, self.asia, self.gr]
 
         # Creates a string of availible games to Subscribe to
         listStr = ""
@@ -27,12 +28,12 @@ class Subscriptions():
             listStr = listStr + ("\n" + x[-1])
 
         # Makes that string look pretty
-        self.roles = "```Regions available to subscribe to: %s ```" % listStr
+        self.roles = "```Regions available to join: %s ```" % listStr
 
     # Joins the user to a role
     @checks.is_server()
     @commands.command(hidden=True,pass_context=True)
-    async def join(self, ctx, *, region: str):
+    async def join(self, ctx, *, region: str = None):
         """Adds you to a regions role"""
 
         # Get's the server and user from message
@@ -45,6 +46,14 @@ class Subscriptions():
         # Defines whether this command is adding or
         # removing role
         self.sub = True
+
+        # If there is no parameter passed, output list of
+        # Regions availible to subscribe to
+        if region is None:
+            output = await self.bot.say(self.roles)
+            await asyncio.sleep(self.delay)
+            await self.bot.delete_message(ctx.message)
+            await self.bot.delete_message(output)
 
         # Checks if the region is an available option
         for options in self.allOptions:
