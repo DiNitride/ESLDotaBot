@@ -66,7 +66,10 @@ class Subscriptions():
 
         # If region is not valid, output available roles
         if not valid:
-            await self.bot.say(self.roles)
+            output = await self.bot.say(self.roles)
+            await asyncio.sleep(self.delay)
+            await self.bot.delete_message(ctx.message)
+            await self.bot.delete_message(output)
 
     @checks.is_server()
     @commands.command(hidden=True,pass_context=True)
@@ -104,7 +107,10 @@ class Subscriptions():
 
         # If region is not valid, output available roles
         if not valid:
-            await self.bot.say(self.roles)
+            output = await self.bot.say(self.roles)
+            await asyncio.sleep(self.delay)
+            await self.bot.delete_message(ctx.message)
+            await self.bot.delete_message(output)
 
 def setup(bot):
     bot.add_cog(Subscriptions(bot))
