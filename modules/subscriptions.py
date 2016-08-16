@@ -10,7 +10,7 @@ class Subscriptions():
         # Message delete delay
         self.delay = 10
 
-        # Options for different gams
+        # Options for different games
         # ID first entry
         # Pretty, correctly spelt name as last
         # Various ways of inputting in the middle
@@ -19,8 +19,9 @@ class Subscriptions():
         self.cis = ['194807064969740288', 'cis', 'CIS']
         self.asia = ['195096302311309312', 'asia', 'Asia']
         self.gr = ['195544243308199936','gr','greece','Greece']
+        self.latam = ['215112606401298434','latam','latin america','Latin America']
 
-        self.allOptions = [self.na, self.eu, self.cis, self.asia, self.gr]
+        self.allOptions = [self.na, self.eu, self.cis, self.asia, self.gr, self.latam]
 
         # Creates a string of availible games to Subscribe to
         listStr = ""
