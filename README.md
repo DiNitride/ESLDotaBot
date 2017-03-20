@@ -1,4 +1,4 @@
 # ESLDotaBot
-A basic bot for the ESL Dota Discord Server
+A Discord bot to manage roles on the Official ESL Dota 2 Server
 
-Add a token.txt file in the root with the bot login token
+Build by DiNitride for MenOfWar#3817
